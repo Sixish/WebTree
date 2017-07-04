@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Tree - Demonstration</title>
+        <link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="js/Stack.js" charset="utf-8"></script>
+
+        <script src="js/Token.js" charset="utf-8"></script>
+        <script src="js/LogicOperator.js" charset="utf-8"></script>
+        <script src="js/LogicParser.js" charset="utf-8"></script>
+
+        <script src="js/Controller.js" charset="utf-8"></script>
+        <script src="js/Entry.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1>Tree Demonstration</h1>
+        <main>
+            <h2>Input</h2>
+            <fieldset id="config-input">
+                
+                <label for="logic-sentence">Sentence</label>
+                <input type="text" name="logic-sentence" value="p&#8743;q" id="logic-sentence">
+
+                <label for="logic-postfix">Postfix</label>
+                <input type="text" name="logic-postfix" id="logic-postfix" disabled>
+
+                <input type="submit" name="tree-generate" value="Generate" id="tree-generate">
+
+                <fieldset id="logic-sentence-symbols">
+                    <legend>Symbols</legend>
+                    <dl id="logic-sentence-insert-symbols">
+                        <!-- Bracket 7 -->
+                        <dt data-insert-key="(">(</dt> <!-- Group Open -->
+                        <dt data-insert-key=")">)</dt> <!-- Group Close -->
+
+                        <!-- Bracket 6 -->
+                        <dt data-insert-key="&#172;">&#172;</dt> <!-- Negation -->
+
+                        <!-- Bracket 5 -->
+                        <dt data-insert-key="&#8743;">&#8743;</dt> <!-- Conjunction -->
+                        <dt data-insert-key="&#8593;">&#8593;</dt> <!-- NAND -->
+
+                        <!-- Bracket 4 -->
+                        <dt data-insert-key="&#8744;">&#8744;</dt> <!-- Disjunction -->
+                        <dt data-insert-key="&#8595;">&#8595;</dt> <!-- NOR -->
+
+                        <!-- Bracket 3 -->
+                        <dt data-insert-key="&#8594;">&#8594;</dt> <!-- Implication -->
+
+                        <!-- Bracket 2 -->
+                        <dt data-insert-key="&#8660;">&#8660;</dt> <!-- Equivalence -->
+                        <dt data-insert-key="&#8853;">&#8853;</dt> <!-- Exclusive Disjunction -->
+
+                        <!-- Bracket 1 -->
+                        <dt data-insert-key="&#8868;">&#8868;</dt> <!-- T -->
+                        <dt data-insert-key="&#8869;">&#8869;</dt> <!-- F -->
+                    </dl>
+                    <dl id="logic-sentence-insert-variables">
+                        <dt data-insert-key="p">p</dt>
+                        <dt data-insert-key="q">q</dt>
+                        <dt data-insert-key="r">r</dt>
+                    </dl>
+                </fieldset>
+
+            </fieldset>
+
+            <div class="tree-container">
+                <div class="tree-demo">
+                    <div class="tree-node branch-node has-left-child has-right-child">
+                        <span class="node-name">&#8743;</span>
+                    </div>
+                    <div class="tree-node leaf-node is-left-child">
+                        <span class="node-name">p</span>
+                    </div>
+                    <div class="tree-node leaf-node is-right-child">
+                        <span class="node-name">q</span>
+                    </div>
+                    <!--
+                    <canvas id="tree-demo-canvas">
+                        Tree drawing requires HTML5 Canvas support.
+                    </canvas>
+                    -->
+                </div>
+                <fieldset id="config-options">
+                    <legend>Configuration</legend>
+
+                    <input type="radio" name="" value="logic" id="tree-type">
+                    <label for="tree-type">Logic Syntax Tree</label>
+                </fieldset>
+
+            </div>
+        </main>
+    </body>
+</html>
