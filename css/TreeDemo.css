@@ -1,0 +1,64 @@
+/* Styling for the container of the demo itself. */
+#container-tree-demo {
+    position: relative;
+    height: 20em;
+    width: 20em;
+}
+
+#logic-sentence-symbols dl {
+    font-size: 2em;
+    margin: 0;
+}
+
+#logic-sentence-symbols dt {
+    display: inline;
+    padding: 0 0.5em;
+    cursor: pointer;
+    float: left;
+    text-shadow: 0em 0em 0.25em #e9e900;
+    color: #3e3e00;
+}
+
+#logic-sentence-symbols dt:hover {
+    color: #11ee11;
+}
+
+.tree-node-pivot {
+    width: 10em;
+}
+
+.tree-node {
+    border: 0.1em solid #000;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-radius: 100%;
+}
+
+/* Experimental Positioning */
+
+/* All pivots should be absolutely positioned relative to where the parent should be. */
+.tree-node-pivot {
+    position: absolute;
+    /* Set these values using JS on a per-node basis. */
+    left: 0;
+    top: 0;
+}
+
+/* Transformations when the node is a left or right child. The transform-origin should be set to point to
+ * the center of the parent. */
+.tree-node-pivot.is-left-child {
+    transform: rotate(-225deg);
+}
+.tree-node-pivot.is-right-child {
+    transform: rotate(-315deg);
+}
+
+/* Use smooth node movements. */
+.tree-node-pivot {
+    transition-property: transform, transform-origin;
+    transition-duration: 1s;
+}

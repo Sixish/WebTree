@@ -1,7 +1,12 @@
+/* Theme.css
+ *
+ * Contains generic styles.
+ */
 html {
     background: #f3f3f3;
     color: #313131;
     font-size: 2em;
+    /* Assumes Google Font 'Rancho' is supported. */
     font-family: 'Rancho', cursive;
 }
 
@@ -46,11 +51,6 @@ dl {
     clear: both;
 }
 
-.tree-demo {
-    height: 20em;
-    width: 20em;
-}
-
 fieldset {
     border: 0;
 }
@@ -58,31 +58,4 @@ fieldset {
 fieldset > legend {
     font-weight: bold;
     font-size: 0.6em;
-}
-
-#logic-sentence-symbols dl {
-    font-size: 2em;
-    margin: 0;
-}
-
-#logic-sentence-symbols dt {
-    display: inline;
-    padding: 0 0.5em;
-    cursor: pointer;
-    float: left;
-    text-shadow: 0em 0em 0.25em #e9e900;
-    color: #3e3e00;
-}
-
-#logic-sentence-symbols dt:hover {
-    color: #11ee11;
-}
-
-.tree-node {
-    border: 0.1em solid #000;
-    width: 2em;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    border-radius: 100%;
 }

@@ -1,0 +1,108 @@
+/*
+ * Keyframe animations for rotations.
+ */
+
+/* Left-rotations for outer (pivot) elements. This rule provides the rotation about some axis. */
+@keyframes node-rotate-left-outer {
+    from {
+        transform: translate(-50%, 0) rotate(325deg);
+    }
+    to {
+        transform: translate(-50%, 0) rotate(385deg);
+    }
+}
+
+/* Right-rotations for outer (pivot) elements. This rule provides the rotation about some axis. */
+@keyframes node-rotate-right-outer {
+    from {
+        transform: translate(50%, 0) rotate(35deg);
+    }
+    to {
+        transform: translate(50%, 0) rotate(395deg);
+    }
+}
+
+/* Inverse left rotations for inner elements. This rule makes inner elements of the rotating pivot appear
+ * normal, i.e. they are moving but not rotating. */
+@keyframes node-rotate-left-inner {
+    from {
+        transform: translate(-50%, 0) rotate(-325deg);
+    }
+    to {
+        transform: translate(-50%, 0) rotate(35deg);
+    }
+}
+
+/* Inverse right rotations for inner elements. This rule makes inner elements of the rotating pivot appear
+ * normal, i.e. they are moving but not rotating. */
+@keyframes node-rotate-left-inner {
+    from {
+        transform: translate(-50%, 0) rotate(-35deg);
+    }
+    to {
+        transform: translate(-50%, 0) rotate(325deg);
+    }
+}
+
+.tree-node-pivot.is-left-child {
+    transform: translate(-50%, 0) rotate(325deg);
+    transform-origin: 100% 50%;
+
+    transition-property: transform, transform-origin;
+    transition-duration: 1s;
+
+    animation: node-rotate-left-inner 1s linear infinite;
+}
+
+.tree-node-pivot.is-right-child {
+    transform: translate(50%, 0) rotate(35deg);
+    transform-origin: 0% 50%;
+
+    transition-property: transform, transform-origin;
+    transition-duration: 1s;
+
+    animation: node-rotate-right-outer 1s linear infinite;
+}
+
+.tree-node-pivot.is-left-child > .tree-node {
+    transform: rotate(-325deg);
+    transition-property: transform, transform-origin;
+    transition-duration: 1s;
+
+    animation: node-rotate-left-outer 1s linear infinite;
+}
+
+.tree-node-pivot.is-right-child > .tree-node {
+    transform: rotate(-35deg);
+
+    transition-property: transform, transform-origin;
+    transition-duration: 1s;
+
+    animation: node-rotate-right-inner 1s linear infinite;
+}
+
+.tree-node-pivot.is-right-child:hover {
+    transform: rotate(0deg);
+}
+
+.tree-node-pivot.is-right-child:hover > .tree-node {
+    transform: rotate(0deg);
+}
+
+.tree-node-pivot.is-left-child:hover {
+    transform: rotate(0deg);
+}
+
+.tree-node-pivot.is-left-child:hover > .tree-node {
+    transform: rotate(0deg);
+}
+
+.tree-node-pivot {
+    background-color: rgba(255, 0, 0, 0.25);
+    position: absolute;
+    left: 10em;
+    right: 10em;
+    width: 2em;
+    padding: 0 10em;
+}
+

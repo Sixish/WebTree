@@ -4,19 +4,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Tree - Demonstration</title>
-        <link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
-		<link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+        <link rel="stylesheet" href="css/theme.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="css/TreeDemo.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="css/animations.css" type="text/css" media="screen" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <script src="js/Stack.js" charset="utf-8"></script>
+        <script src="js/generic/Stack.js" charset="utf-8"></script>
+        <script src="js/generic/HashTable.js" charset="utf-8"></script>
 
-        <script src="js/Token.js" charset="utf-8"></script>
-        <script src="js/LogicOperator.js" charset="utf-8"></script>
-        <script src="js/LogicParser.js" charset="utf-8"></script>
+        <script src="js/parser/Token.js" charset="utf-8"></script>
+        <script src="js/parser/LogicOperator.js" charset="utf-8"></script>
+        <script src="js/parser/LogicParser.js" charset="utf-8"></script>
+        <script src="js/parser/SymbolHashTable.js" charset="utf-8"></script>
 
-        <script src="js/Controller.js" charset="utf-8"></script>
+        <script src="js/renderer/Renderer.js" charset="utf-8"></script>
+        <script src="js/renderer/SpriteRenderer.js" charset="utf-8"></script>
+        <script src="js/renderer/TreeRenderer.js" charset="utf-8"></script>
+
         <script src="js/Entry.js" charset="utf-8"></script>
+        <script src="js/Controller.js" charset="utf-8"></script>
     </head>
     <body>
         <h1>Tree Demonstration</h1>
@@ -70,29 +78,29 @@
 
             </fieldset>
 
-            <div class="tree-container">
-                <div class="tree-demo">
-                    <div class="tree-node branch-node has-left-child has-right-child">
-                        <span class="node-name">&#8743;</span>
-                    </div>
-                    <div class="tree-node leaf-node is-left-child">
-                        <span class="node-name">p</span>
-                    </div>
-                    <div class="tree-node leaf-node is-right-child">
-                        <span class="node-name">q</span>
-                    </div>
-                    <!--
-                    <canvas id="tree-demo-canvas">
-                        Tree drawing requires HTML5 Canvas support.
-                    </canvas>
-                    -->
+            <div id="container-tree-demo">
+                <div class="tree-node-pivot branch-node has-left-child has-right-child rotate-left">
+                    <div class="tree-node node-name">&#8743;</div>
                 </div>
-                <fieldset id="config-options">
-                    <legend>Configuration</legend>
+                <div class="tree-node-pivot leaf-node is-left-child">
+                    <div class="tree-node node-name">p</div>
+                </div>
+                <div class="tree-node-pivot leaf-node is-right-child">
+                    <div class="tree-node node-name">q</div>
+                </div>
 
-                    <input type="radio" name="" value="logic" id="tree-type">
-                    <label for="tree-type">Logic Syntax Tree</label>
-                </fieldset>
+                <!--
+                <div class="tree-node-pivot fade-removal">
+                    <div class="tree-node node-name">(Fade test)</div>
+                </div>
+                -->
+            </div>
+            <fieldset id="config-options">
+                <legend>Configuration</legend>
+
+                <input type="radio" name="" value="logic" id="tree-type">
+                <label for="tree-type">Logic Syntax Tree</label>
+            </fieldset>
 
             </div>
         </main>
